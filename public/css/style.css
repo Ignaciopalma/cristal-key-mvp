@@ -7,6 +7,18 @@ body {
 	color: #c87388;
 }
 
+/* h1 {
+	background: red;
+    border-radius: 107px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    background: #c87388;
+    color: #241328;
+} */
+
+
 .container {
 	text-align: center;
 	margin: 0 37%;
@@ -26,4 +38,16 @@ body {
 	width: 100%;
 	height: 27px;
 	background: rgb(203, 162, 172);
+}
+
+#get-button {
+	height: 33px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 30px 0;
+    font-size: 1em;
+}
+
+#pass-render {
+	font-size: 1.5em;
 }
