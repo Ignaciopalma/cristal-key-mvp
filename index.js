@@ -9,8 +9,8 @@ app.get('/', function(request, response) {
 	response.sendfile('client/index.html')
 })
 
-app.listen(8000, function() {
-  console.log('Node app is running on port 8000');
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port');
 });
 
 module.exports = app;
