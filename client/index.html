@@ -11,10 +11,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
 	<script src="public/js/app.js"></script>
 	<script src="public/js/pass-hash.js"></script>
+	<script src="public/js/data-request.js"></script>
 </head>
 <body ng-app="app">	
-	<div class="nav">
-		<a href="#plan">plan</a>
+	<div class="nav" ng-controller="nav">
+		<a href="#/plan" ng-click="signOut()">Sign Out</a>
 		<a href="#signin">SignIn</a>
 		<a href="#signup">SignUp</a>
 		<a href="#main">Get Pass</a>	
