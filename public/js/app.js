@@ -23,9 +23,10 @@ app.config(function($routeProvider) {
   })
 });
 
-app.controller('nav', function($scope, $window) {
+app.controller('nav', function($scope, $window, $location) {
   $scope.signOut = function() {
     $window.localStorage.username = '';
+    $location.path('/main');
   }
 });
 
