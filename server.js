@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-var uristring = 'mongodb://cristal-key-db:N0J1AG=EKFKGA?MAGG:JFD99@ds131480.mlab.com:31480/cristal-key-db';
+var uristring = 'mongodb://ignacio:firstdata@ds131480.mlab.com:31480/cristal-key-db';
 
 mongoose.connect(uristring, function (err, res) {
   if (err) {
