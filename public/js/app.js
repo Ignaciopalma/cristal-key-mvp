@@ -30,6 +30,9 @@ app.controller('nav', function($scope, $window, $location) {
 });
 
 app.controller("mainController", function($scope, $window, $http, $location, passHash, dataRequest) {
+  if($window.localStorage.username !== '') {
+    $('#callout').text('Hello ' + $window.localStorage.username);
+  }
   $http({
     method: 'POST',
     url: '/users/getUser',
@@ -58,15 +61,18 @@ app.controller("mainController", function($scope, $window, $http, $location, pas
   }
 
   $scope.createNewDestinatary = function() {      
-    $('.new-destinatary-overlay').css('display', 'none');  
-    var newDestinatary = $scope.newDestinatary;
-    $scope.destinations.push(newDestinatary);  
-
-    $http({
-      method: 'POST',
-      url: '/users/update',
-      data: {username: $window.localStorage.username, newDestination: $scope.newDestinatary}
-    })
+    if($window.localStorage.username !== '') {
+      $('.new-destinatary-overlay').css('display', 'none');  
+      var newDestinatary = $scope.newDestinatary;
+      $scope.destinations.push(newDestinatary);  
+      $http({
+        method: 'POST',
+        url: '/users/update',
+        data: {username: $window.localStorage.username, newDestination: $scope.newDestinatary}
+      })  
+    } else {
+      $('.new-destinatary-overlay').css('display', 'none');  
+    }
   }
 });
 
