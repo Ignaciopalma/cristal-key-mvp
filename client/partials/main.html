@@ -1,0 +1,29 @@
+<h1 class="title">Cristal Key</h1>	
+
+<p ng-model="cristalpass" id="pass-render">{{cristalpass}}</p>
+
+<ul ng-repeat="destination in destinations" id="destination-ul">
+	<li ng-click="passOverlay(destination)">{{destination}}</li>
+</ul>
+
+<div class="span-container">
+	<span id="add-destination" ng-click="newDestinataryOverlay()">+</span>	
+</div>
+
+
+<div class="overlay">
+	<div class="inner-overlay">
+		<p>Type your secret password</p>
+		<input name="key-input" type="password" ng-model="secretInput" id="secret-key">
+		<button ng-click="getCristalPass()" id="get-pass-button">Get Cristal Pass</button>
+	</div>	
+</div>
+
+
+<div class="new-destinatary-overlay">
+	<div class="inner-overlay">
+		<p>Name of new destinatary</p>
+		<input type="text" ng-model="newDestinatary" id="new-destinatary-input">
+		<button ng-click="createNewDestinatary()" id="create-destinatary-button">Create New Destinatary</button>
+	</div>	
+</div>
