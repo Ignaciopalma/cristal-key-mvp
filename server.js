@@ -6,7 +6,12 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost');
+var uristring =
+process.env.MONGOLAB_URI ||
+process.env.MONGOHQ_URL ||
+'mongodb://localhost';
+
+mongoose.connect(uristring);
 
 var UserSchema = new mongoose.Schema({
   username: {
