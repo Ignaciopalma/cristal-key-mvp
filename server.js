@@ -6,12 +6,12 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-var uristring =
-process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL ||
-'mongodb://localhost';
+// var uristring =
+// process.env.MONGOLAB_URI ||
+// process.env.MONGOHQ_URL ||
+// 'mongodb://localhost';
 
-mongoose.connect(uristring, function (err, res) {
+mongoose.connect('mongodb://cristal-key-db:N0J1AG=EKFKGA?MAGG:JFD99@ds131480.mlab.com:31480/cristal-key-db', function (err, res) {
   if (err) {
   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
