@@ -5,16 +5,28 @@ var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
+var uriDev = 'mongodb://localhost'
+var uriProd = 'mongodb://ignacio:firstdata@ds131480.mlab.com:31480/cristal-key-db';
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development'; 
+if(env === 'development') {
+	mongoose.connect(uriDev, function (err, res) {
+	  if (err) {
+	  console.log ('ERROR connecting to: ' + uriDev + '. ' + err);
+	  } else {
+	  console.log ('Succeeded connected to: ' + uriDev);
+	  }
+	});	
+} else {
+	mongoose.connect(uriProd, function (err, res) {
+	  if (err) {
+	  console.log ('ERROR connecting to: ' + uriProd + '. ' + err);
+	  } else {
+	  console.log ('Succeeded connected to: ' + uriProd);
+	  }
+	});
+}
 
-var uristring = 'mongodb://ignacio:firstdata@ds131480.mlab.com:31480/cristal-key-db';
 
-mongoose.connect(uristring, function (err, res) {
-  if (err) {
-  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-  } else {
-  console.log ('Succeeded connected to: ' + uristring);
-  }
-});
 
 var UserSchema = new mongoose.Schema({
   username: {
