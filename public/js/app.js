@@ -6,8 +6,8 @@ app.config(function($routeProvider) {
     templateUrl : "../../client/partials/main.html",   
     controller: "mainController" 
   })
-  .when("/plan", {
-    templateUrl : "../../client/partials/plan.html",    
+  .when("/signout", {
+    templateUrl : "../../client/partials/main.html",    
   })
   .when("/signin", {
     templateUrl : "../../client/partials/signin.html",    
@@ -25,8 +25,7 @@ app.config(function($routeProvider) {
 
 app.controller('nav', function($scope, $window, $location) {
   $scope.signOut = function() {
-    $window.localStorage.username = '';
-    $location.path('/main');
+    $window.localStorage.username = '';    
   }
 });
 
