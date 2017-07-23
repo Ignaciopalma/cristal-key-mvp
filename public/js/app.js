@@ -1,6 +1,6 @@
 var app = angular.module('app', ["ngRoute"]);
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
   $routeProvider
   .when("/", {
     templateUrl : "../../client/partials/main.html",   
@@ -20,7 +20,12 @@ app.config(function($routeProvider) {
   .when("/main", {
     templateUrl : "../../client/partials/main.html",    
     controller: "mainController" 
-  })
+  });
+
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
 });
 
 app.controller('nav', function($scope, $window, $location) {

@@ -7,8 +7,7 @@ var jwt = require('jwt-simple');
 var mongoose = require('mongoose');
 var uriDev = 'mongodb://localhost'
 var uriProd = 'mongodb://ignacio:firstdata@ds131480.mlab.com:31480/cristal-key-db';
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development'; 
-
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 if(env === 'development') {
 	mongoose.connect(uriDev, function (err, res) {
@@ -17,7 +16,7 @@ if(env === 'development') {
 	  } else {
 	  console.log ('Succeeded connected to: ' + uriDev);
 	  }
-	});	
+	});
 } else {
 	mongoose.connect(uriProd, function (err, res) {
 	  if (err) {
@@ -53,12 +52,12 @@ var app = express();
 
 app.use(bodyParser.json());
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3000));
 
 app.use(express.static(path.join(__dirname, '/')));
 
 app.listen(app.get('port'), function() {
-  console.log('Node app is running on port');
+  console.log('Node app is running on port..', app.get('port'));
 });
 
 
@@ -88,23 +87,23 @@ app.post('/users/getUser', function(req, res, next) {
 app.post('/users', function(req, res, next) {
 	console.log('post request comming in...')
 	console.log(req.body)
-	
+
   bcrypt.hash(req.body.password, null, null, function(err, hash) {
     if (err){
       console.error(err);
-    } else {			
+    } else {
 	    var user = {
 				username: req.body.username,
 				password: hash,
-				destinations: req.body.destinations		
+				destinations: req.body.destinations
 			}
 
 			var data = new UserData(user);
-			data.save();			
+			data.save();
 			res.send({redirect: '/main', username: req.body.username})
     }
-  });  
-  
+  });
+
 });
 
 app.post('/signin', function(req, res, next) {
@@ -114,7 +113,7 @@ app.post('/signin', function(req, res, next) {
 	  bcrypt.compare(req.body.password, user.password, function(err, result) {
 	  	console.log(result);
       if (err){
-        console.log(err);        
+        console.log(err);
       } else {
       	console.log('auth success');
       	res.send({redirect: '/main', username: req.body.username})

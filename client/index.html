@@ -7,24 +7,23 @@
 	<link rel="stylesheet" type="text/css" href="public/css/style.css" />
 	<link href="https://fonts.googleapis.com/css?family=Aldrich|Orbitron|Press+Start+2P" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+	<script src="../node_modules/angular/angular.js"></script>
+	<script src="../node_modules/angular-route/angular-route.js"></script>
 	<script src="public/js/app.js"></script>
 	<script src="public/js/pass-hash.js"></script>
 	<script src="public/js/data-request.js"></script>
+	<base href="">
 </head>
 <body ng-app="app">	
 	<div class="nav" ng-controller="nav">
-		<a href="#/signout" ng-click="signOut()">Sign Out</a>
-		<a href="#signin">SignIn</a>
-		<a href="#signup">SignUp</a>
-		<a href="#main">Get Pass</a>	
+		<a href="/signout" ng-click="signOut()">Sign Out</a>
+		<a href="/signin">SignIn</a>
+		<a href="/signup">SignUp</a>
+		<a href="/main">Get Pass</a>	
 	</div>
 	
 	<div class="container">	
 		<ng-view></ng-view>
-	</div>	
-
-	
+	</div>		
 </body>
 </html>
