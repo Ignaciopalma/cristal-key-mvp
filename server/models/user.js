@@ -1,6 +1,4 @@
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/test');
+var mongoose = require('mongoose')
 
 var UserSchema = new mongoose.Schema({
   username: {
@@ -8,11 +6,13 @@ var UserSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-
   password: {
     type: String,
     required: true
+  },
+  destinations: {
+  	type: Array
   }
-});
+})
 
-module.exports = mongoose.model('users', UserSchema);
+module.exports = mongoose.model('User', UserSchema)
